@@ -1,4 +1,7 @@
 const categoryContainer = document.getElementById("category-container");
+const foodContainer = document.getElementById("food-container");
+const cartContainer = document.getElementById("cart-container");
+let cart = [];
 
 const loadCategory = async () => {
   try {
@@ -29,7 +32,6 @@ const loadCategory = async () => {
 loadCategory();
 
 const showCategoryData = async (id) => {
-  const foodContainer = document.getElementById("food-container");
   try {
     const url = id
       ? ` https://taxi-kitchen-api.vercel.app/api/v1/categories/${id}`
@@ -41,7 +43,7 @@ const showCategoryData = async (id) => {
 
     foodsData.forEach((food) => {
       foodContainer.innerHTML += `
-      <div class="bg-yellow-600/50 border backdrop-blur-sm p-2 rounded-xl mt-4">
+      <div class="bg-yellow-600/40 border backdrop-blur-sm p-2 rounded-xl mt-4">
               <div class="flex items-center gap-4">
                 <img onclick="showDetails(${food.id})" src=${food.foodImg} alt="" class="w-32 aspect-square object-cover bg-white rounded-lg p-1" />
 
@@ -62,9 +64,44 @@ const showCategoryData = async (id) => {
 };
 showCategoryData();
 
-const showDetails = (id) => {
-  console.log(id);
+// const showDetails = (id) => {
+//   console.log(id);
+// };
+
+const updateCart = () => {
+  cart.forEach((item) => {
+    console.log(item);
+    cartContainer.innerHTML += `
+    <div class="bg-yellow-600 flex justify-between items-center">
+              <div class="flex items-center gap-4">
+                <img src=${item.foodImg} alt="" class="w-16 aspect-square object-cover bg-white border border-white">
+              <div>
+                <h4 class="text-white text-xl font-semibold mb-1">${item.title}</h4>
+                <p class="font-semibold text-xs text-black"><span>${item.price}</span> BDT</p>
+              </div>
+            </div>
+            <i onclick="removeItem(${item.id})" class="fa-regular fa-trash-can text-red-500 text-xl mr-4"></i>
+              </div>
+    `;
+  });
 };
-const addCart = (id) => {
+
+const addCart = async (id) => {
+  const url = `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  const newCartItem = data.details;
+  cart = [...cart, newCartItem];
+  cartContainer.innerHTML = "";
+  updateCart();
+};
+const removeItem = (id) => {
   console.log(id);
+  const index = cart.findIndex((item) => item.id === id);
+
+  if (index !== -1) {
+    cart.splice(index, 1);
+  }
+  cartContainer.innerHTML = "";
+  updateCart();
 };
