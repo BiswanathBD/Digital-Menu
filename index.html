@@ -25,11 +25,25 @@
         font-family: "Exo 2", sans-serif;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       .background {
         min-height: 100vh;
         background: linear-gradient(to top, black, rgba(0, 0, 0, 0)),
           url(./assets/bg.png), rgb(22, 22, 22);
         background-size: 50%;
+        background-attachment: fixed;
+      }
+
+      .heading {
+        background-image: url(./assets/text-background.jpg);
+        background-size: cover;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
       }
 
       @keyframes spin-slow {
@@ -40,36 +54,51 @@
       .animate-spin-slow {
         animation: spin-slow 30s linear infinite;
       }
-
-      .custom-shadow {
-        text-shadow: 5px 5px 5px black;
-      }
     </style>
   </head>
-  <body
-    class="container mx-auto px-4 md:px-10 lg:px-20 exo-2 text-yellow-600 background"
-  >
-    <header
-      class="h-svh flex gap-20 md:gap-30 xl:gap-40 items-center justify-center"
-    >
-      <div class="flex flex-col gap-6 w-[30%] custom-shadow">
-        <h1 class="text-9xl font-bold">Digital Menu</h1>
+  <body class="container mx-auto px-20 exo-2 text-yellow-600 background">
+    <header class="h-svh grid grid-cols-2 gap-20 justify-between items-center">
+      <div class="flex flex-col gap-6 p-10">
+        <h1 class="text-9xl font-bold heading">Digital Menu</h1>
         <h3 class="text-white text-2xl font-semibold">
           🍴 Enjoy our delicious food made with love and passion — fresh, tasty,
           and served just for you.
         </h3>
-        <button
-          href=""
+        <a
+          href="#foods"
           class="bg-yellow-600 w-fit text-white mx-auto rounded-full p-2 text-3xl mt-20 animate-bounce cursor-pointer"
-        >
-          <i class="fa-solid fa-angle-down"></i>
-        </button>
+          ><i class="fa-solid fa-angle-down"></i
+        ></a>
       </div>
-      <img class="w-[40%] animate-spin-slow rounded-full" src="./assets/hero.png" />
+      <img
+        class="mx-auto animate-spin-slow rounded-full p-10"
+        src="./assets/hero.png"
+      />
     </header>
 
-    <main>
+    <main id="foods" class="container mx-auto p-10">
+      <div class="grid grid-cols-10 gap-10">
+        <div
+          class="col-span-2 border border-yellow-600/20 backdrop-blur-sm rounded-xl h-fit"
+        >
+          <div
+            class="text-center bg-yellow-600 p-2 shadow-lg shadow-yellow-600/20 rounded-t-xl text-white text-2xl mb-8 font-semibold"
+          >
+            <h4>Categories</h4>
+          </div>
+          <div id="category-container" class="grid gap-4 m-4"></div>
+        </div>
 
+        <div class="col-span-5">
+          <h1 class="text-center text-6xl font-bold -mt-4 mb-8 text-white">Our Foods</h1>
+
+          <div id="food-container">
+            
+          </div>
+        </div>
+      </div>
     </main>
+
+    <script src="./index.js"></script>
   </body>
 </html>
