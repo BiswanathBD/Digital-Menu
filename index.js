@@ -1,6 +1,7 @@
 const categoryContainer = document.getElementById("category-container");
 const foodContainer = document.getElementById("food-container");
 const cartContainer = document.getElementById("cart-container");
+const cartTotal = document.getElementById("cart-total");
 let cart = [];
 
 const loadCategory = async () => {
@@ -53,7 +54,7 @@ const showCategoryData = async (id) => {
                   <div class="flex justify-between items-center">
                     <hr class="flex-grow"> </p> <h2 class="text-xl font-semibold text-white mx-4"><span id-"price">${food.price}</span> BDT</h2>
                   </div>
-                  <button onclick="addCart(${food.id})" class="mt-1 px-3 py-1 bg-white text-yellow-800 rounded-md font-semibold mx-4">
+                  <button onclick="addCart(${food.id})" class="mt-1 px-3 py-1 bg-white text-yellow-600 rounded-md font-semibold mx-4 cursor-pointer hover:text-yellow-700 hover:bg-white/90">
               <i class="fa-solid fa-square-plus"></i> Add to cart</button>
                 </div>
               </div>
@@ -70,7 +71,6 @@ showCategoryData();
 
 const updateCart = () => {
   cart.forEach((item) => {
-    console.log(item);
     cartContainer.innerHTML += `
     <div class="bg-yellow-600 flex justify-between items-center">
               <div class="flex items-center gap-4">
@@ -84,6 +84,11 @@ const updateCart = () => {
               </div>
     `;
   });
+  cartSum();
+};
+const cartSum = () => {
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  cartTotal.innerText = total;
 };
 
 const addCart = async (id) => {
@@ -96,7 +101,6 @@ const addCart = async (id) => {
   updateCart();
 };
 const removeItem = (id) => {
-  console.log(id);
   const index = cart.findIndex((item) => item.id === id);
 
   if (index !== -1) {
@@ -104,4 +108,13 @@ const removeItem = (id) => {
   }
   cartContainer.innerHTML = "";
   updateCart();
+};
+
+const placeOrder = () => {
+  const order = [...cart];
+  cart = [];
+  cartContainer.innerHTML = "";
+
+  updateCart();
+  console.log(order);
 };
