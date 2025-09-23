@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Menu Card</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      .exo-2 {
+        font-family: "Exo 2", sans-serif;
+      }
+
+      .background {
+        min-height: 100vh;
+        background: linear-gradient(to top, black, rgba(0, 0, 0, 0)),
+          url(./assets/bg.png), rgb(22, 22, 22);
+        background-size: 50%;
+      }
+
+      @keyframes spin-slow {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 30s linear infinite;
+      }
+
+      .custom-shadow {
+        text-shadow: 5px 5px 5px black;
+      }
+    </style>
+  </head>
+  <body
+    class="container mx-auto px-4 md:px-10 lg:px-20 exo-2 text-yellow-600 background"
+  >
+    <header
+      class="h-svh flex gap-20 md:gap-30 xl:gap-40 items-center justify-center"
+    >
+      <div class="flex flex-col gap-6 w-[30%] custom-shadow">
+        <h1 class="text-9xl font-bold">Digital Menu</h1>
+        <h3 class="text-white text-2xl font-semibold">
+          🍴 Enjoy our delicious food made with love and passion — fresh, tasty,
+          and served just for you.
+        </h3>
+        <button
+          href=""
+          class="bg-yellow-600 w-fit text-white mx-auto rounded-full p-2 text-3xl mt-20 animate-bounce cursor-pointer"
+        >
+          <i class="fa-solid fa-angle-down"></i>
+        </button>
+      </div>
+      <img class="w-[40%] animate-spin-slow rounded-full" src="./assets/hero.png" />
+    </header>
+
+    <main>
+
+    </main>
+  </body>
+</html>
