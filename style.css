@@ -1,0 +1,92 @@
+body {
+  cursor: url("./assets/cursor.png"), auto;
+}
+.cursor-pointer,
+a,
+button,
+[onclick] {
+  cursor: url("./assets/pointer.png") 0 0, pointer;
+}
+.exo-2 {
+  font-family: "Exo 2", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.background {
+  min-height: 100vh;
+  background: linear-gradient(to top, black, rgba(0, 0, 0, 0)),
+    url(./assets/bg.png), rgb(22, 22, 22);
+  background-size: 50%;
+  background-attachment: fixed;
+}
+
+.heading {
+  background-image: url(./assets/text-background.jpg);
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+#order::after,
+#order::before {
+  --angle: 0deg;
+  content: "";
+  position: absolute;
+  height: calc(100% + 2px);
+  width: calc(100% + 2px);
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 50%,
+    #f59f0b,
+    transparent
+  );
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  border-radius: inherit;
+  animation: spin 2s linear infinite;
+}
+#order::before {
+  filter: blur(20px);
+  opacity: 50%;
+}
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+#category-container::-webkit-scrollbar,
+#food-container::-webkit-scrollbar,
+#cart-container::-webkit-scrollbar {
+  width: 2px;
+}
+#category-container::-webkit-scrollbar-thumb,
+#food-container::-webkit-scrollbar-thumb,
+#cart-container::-webkit-scrollbar-thumb {
+  background-color: #f59f0b;
+  border-radius: 2px;
+}

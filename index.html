@@ -17,64 +17,11 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <style>
-      body {
-        cursor: url("./assets/cursor.png"), auto;
-      }
-      .cursor-pointer,
-      a,
-      button,
-      [onclick] {
-        cursor: url("./assets/pointer.png") 0 0, pointer;
-      }
-      .exo-2 {
-        font-family: "Exo 2", sans-serif;
-      }
 
-      html {
-        scroll-behavior: smooth;
-      }
-
-      .background {
-        min-height: 100vh;
-        background: linear-gradient(to top, black, rgba(0, 0, 0, 0)),
-          url(./assets/bg.png), rgb(22, 22, 22);
-        background-size: 50%;
-        background-attachment: fixed;
-      }
-
-      .heading {
-        background-image: url(./assets/text-background.jpg);
-        background-size: cover;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
-      }
-
-      @keyframes spin-slow {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      .animate-spin-slow {
-        animation: spin-slow 30s linear infinite;
-      }
-      #category-container::-webkit-scrollbar,
-      #food-container::-webkit-scrollbar,
-      #cart-container::-webkit-scrollbar {
-        width: 2px;
-      }
-      #category-container::-webkit-scrollbar-thumb,
-      #food-container::-webkit-scrollbar-thumb,
-      #cart-container::-webkit-scrollbar-thumb {
-        background-color: #f59f0b;
-        border-radius: 2px;
-      }
-    </style>
   </head>
   <body class="container mx-auto px-20 exo-2 text-yellow-600 background">
     <header class="h-svh grid grid-cols-2 gap-20 justify-between items-center">
@@ -82,8 +29,14 @@
         <h1 class="text-9xl font-bold heading">Digital Menu</h1>
         <h3 class="text-white text-2xl font-semibold">
           🍴 Enjoy our delicious food made with love and passion — fresh, tasty,
-          and served just for you.
+          and served just for you. <br />
         </h3>
+        <a
+          id="order"
+          href="#foods"
+          class="ml-1 text-xl font-semibold px-4 py-2 bg-black/85 rounded-full w-fit relative"
+          >Order Now</a
+        >
         <a
           href="#foods"
           class="bg-yellow-600 w-fit text-white mx-auto rounded-full p-2 text-3xl mt-20 animate-bounce cursor-pointer"
@@ -121,7 +74,7 @@
             Our Foods
           </h1>
 
-          <div id="food-container" class="max-h-[86%] overflow-y-auto"></div>
+          <div id="food-container" class=""></div>
           <!-- food item section -->
         </div>
 
