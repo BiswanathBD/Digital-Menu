@@ -15,7 +15,7 @@ const loadCategory = async () => {
     categoryContainer.innerHTML = "";
     categoryData.forEach((category) => {
       categoryContainer.innerHTML += `
-      <div id="${category.id}"  onclick="showCategoryData(${category.id})" class="group flex justify-between items-center gap-2 bg-gradient-to-l from-yellow-600 p-1 rounded-r-full">
+      <div id="${category.id}"  onclick="showCategoryData(${category.id})" class="group flex justify-between items-center gap-2 bg-gradient-to-l from-yellow-600 p-1 rounded-r-full mr-2">
               <p class="font-semibold text-lg text-white ml-4 group-hover:ml-5 group-hover:text-xl transition-all">${category.categoryName}</p>
               <img src=${category.categoryImg} alt="" class="p-1 bg-white rounded-full w-10 aspect-square object-cover">
             </div>
@@ -44,7 +44,7 @@ const showCategoryData = async (id) => {
 
     foodsData.forEach((food) => {
       foodContainer.innerHTML += `
-      <div class="bg-yellow-600/40 border backdrop-blur-sm p-2 rounded-xl mt-4">
+      <div class="bg-yellow-600/40 border backdrop-blur-sm p-2 rounded-xl mt-4 mr-2">
               <div class="flex items-center gap-4">
                 <img onclick="showDetails(${food.id})" src=${food.foodImg} alt="" class="w-32 aspect-square object-cover bg-white rounded-lg p-1" />
 
@@ -72,7 +72,7 @@ showCategoryData();
 const updateCart = () => {
   cart.forEach((item) => {
     cartContainer.innerHTML += `
-    <div class="bg-yellow-600 flex justify-between items-center">
+    <div class="bg-yellow-600 flex justify-between items-center h-fit mr-2">
               <div class="flex items-center gap-4">
                 <img src=${item.foodImg} alt="" class="w-16 aspect-square object-cover bg-white border border-white">
               <div>

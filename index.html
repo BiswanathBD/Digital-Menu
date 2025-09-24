@@ -63,6 +63,17 @@
       .animate-spin-slow {
         animation: spin-slow 30s linear infinite;
       }
+      #category-container::-webkit-scrollbar,
+      #food-container::-webkit-scrollbar,
+      #cart-container::-webkit-scrollbar {
+        width: 2px;
+      }
+      #category-container::-webkit-scrollbar-thumb,
+      #food-container::-webkit-scrollbar-thumb,
+      #cart-container::-webkit-scrollbar-thumb {
+        background-color: #f59f0b;
+        border-radius: 2px;
+      }
     </style>
   </head>
   <body class="container mx-auto px-20 exo-2 text-yellow-600 background">
@@ -85,31 +96,37 @@
       />
     </header>
 
-    <main id="foods" class="container mx-auto p-10">
+    <main id="foods" class="container mx-auto">
       <div class="grid grid-cols-10 gap-10">
         <div
-          class="col-span-2 border border-yellow-600/20 backdrop-blur-sm rounded-xl h-fit"
+          class="col-span-2 border border-yellow-600/20 backdrop-blur-sm rounded-xl max-h-[90vh] my-[5vh]"
         >
           <div
             class="text-center bg-yellow-600 p-2 shadow-lg shadow-yellow-600/20 rounded-t-xl text-white text-2xl mb-8 font-semibold"
           >
             <h4>Categories</h4>
           </div>
-          <div id="category-container" class="grid gap-4 m-4"></div>
+          <div
+            id="category-container"
+            class="grid gap-4 max-h-[85%] overflow-y-scroll overflow-x-clip"
+          >
+            <!-- category items here -->
+          </div>
         </div>
 
-        <div class="col-span-5">
+        <div class="col-span-5 max-h-[90vh] my-[5vh]">
           <h1
-            class="text-center text-6xl font-bold pb-8 text-white border border-yellow-600 rounded-t-xl p-4 border-b-0"
+            class="text-center text-6xl font-bold pb-8 text-white -mt-6 mb-2 rounded-t-xl p-2"
           >
             Our Foods
           </h1>
 
-          <div id="food-container"></div>
+          <div id="food-container" class="max-h-[86%] overflow-y-auto"></div>
+          <!-- food item section -->
         </div>
 
         <div
-          class="col-span-3 border border-yellow-600/20 backdrop-blur-sm rounded-xl h-fit"
+          class="col-span-3 border border-yellow-600/20 backdrop-blur-sm rounded-xl h-auto max-h-[90vh] my-[5vh]"
         >
           <div
             class="text-center p-2 shadow-lg shadow-yellow-600/20 rounded-t-xl text-black bg-white text-3xl font-semibold"
@@ -117,7 +134,10 @@
             <h4>Cart</h4>
           </div>
 
-          <div id="cart-container" class="grid gap-4 my-8 px-4">
+          <div
+            id="cart-container"
+            class="flex flex-col gap-4 my-8 px-4 h-[62%] overflow-y-auto"
+          >
             <!-- cart item here -->
           </div>
 
