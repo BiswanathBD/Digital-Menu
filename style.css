@@ -67,8 +67,8 @@ html {
   animation: spin 2s linear infinite;
 }
 #order::before {
-  filter: blur(20px);
-  opacity: 50%;
+  filter: blur(10px);
+  opacity: 0.5;
 }
 @keyframes spin {
   from {
@@ -80,13 +80,18 @@ html {
 }
 
 #category-container::-webkit-scrollbar,
-#food-container::-webkit-scrollbar,
 #cart-container::-webkit-scrollbar {
   width: 2px;
 }
 #category-container::-webkit-scrollbar-thumb,
-#food-container::-webkit-scrollbar-thumb,
 #cart-container::-webkit-scrollbar-thumb {
+  background-color: #f59f0b;
+  border-radius: 2px;
+}
+#food-section::-webkit-scrollbar {
+  width: 0px;
+}
+#food-section::-webkit-scrollbar-thumb{
   background-color: #f59f0b;
   border-radius: 2px;
 }

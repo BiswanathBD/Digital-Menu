@@ -17,14 +17,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-
   </head>
   <body class="container mx-auto px-20 exo-2 text-yellow-600 background">
-    <header class="h-svh grid grid-cols-2 gap-20 justify-between items-center">
+    <header class="h-svh grid grid-cols-2 gap-20 justify-between items-center mb-40">
       <div class="flex flex-col gap-6 p-10">
         <h1 class="text-9xl font-bold heading">Digital Menu</h1>
         <h3 class="text-white text-2xl font-semibold">
@@ -34,7 +32,7 @@
         <a
           id="order"
           href="#foods"
-          class="ml-1 text-xl font-semibold px-4 py-2 bg-black/85 rounded-full w-fit relative"
+          class="ml-1 text-xl text-white font-semibold px-4 py-2 bg-black/80 hover:bg-neutral-900 hover:text-yellow-600 rounded-full w-fit relative transition-all"
           >Order Now</a
         >
         <a
@@ -50,7 +48,7 @@
     </header>
 
     <main id="foods" class="container mx-auto">
-      <div class="grid grid-cols-10 gap-10">
+      <div class="grid grid-cols-10 gap-10 h-screen">
         <div
           class="col-span-2 border border-yellow-600/20 backdrop-blur-sm rounded-xl max-h-[90vh] my-[5vh]"
         >
@@ -67,14 +65,17 @@
           </div>
         </div>
 
-        <div class="col-span-5 max-h-[90vh] my-[5vh]">
-          <h1
-            class="text-center text-6xl font-bold pb-8 text-white -mt-6 mb-2 rounded-t-xl p-2"
+        <div
+          id="food-section"
+          class="col-span-5 max-h-[100vh] pt-[5vh] overflow-y-scroll"
+        >
+          <h2
+            class="text-left py-3 px-8 bg-gradient-to-r from-yellow-600 to-transparent text-2xl font-bold text-white mb-8 rounded-t-2xl"
           >
-            Our Foods
-          </h1>
+            Our Foods :
+          </h2>
 
-          <div id="food-container" class=""></div>
+          <div id="food-container"></div>
           <!-- food item section -->
         </div>
 
@@ -82,7 +83,7 @@
           class="col-span-3 border border-yellow-600/20 backdrop-blur-sm rounded-xl h-auto max-h-[90vh] my-[5vh]"
         >
           <div
-            class="text-center p-2 shadow-lg shadow-yellow-600/20 rounded-t-xl text-black bg-white text-3xl font-semibold"
+            class="text-center p-2 shadow-lg shadow-yellow-600/20 rounded-t-xl text-white bg-yellow-600 text-3xl font-semibold"
           >
             <h4>Cart</h4>
           </div>
