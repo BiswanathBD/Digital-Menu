@@ -1,6 +1,6 @@
 # Digital Menu
 
-> A simple, responsive digital menu card built with Tailwind CSS and JavaScript.
+> A simple digital menu card built with Tailwind CSS and JavaScript.
 
 Live demo: https://biswanathbd.github.io/Digital-Menu/
 
