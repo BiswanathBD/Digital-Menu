@@ -2,7 +2,7 @@ config.bat
 node_modules
 
 # Security & Editor ignore
-.vscode/
-api.js
-api.ts
+!.vscode/
+!api.js
+!api.ts
 **/public/fonts/
